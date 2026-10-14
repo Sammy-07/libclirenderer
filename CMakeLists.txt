@@ -9,4 +9,4 @@ add_library(libclirenderer
 )
 
 # Specify where other projects can find its header files
-target_include_directories(libclirenderer PUBLIC .)
+target_include_directories(libclirenderer PUBLIC include)
