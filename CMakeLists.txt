@@ -3,7 +3,7 @@ project(libclirenderer CXX)
 
 # Create a library target
 add_library(libclirenderer
-    libclirenderer.h
+    include/libclirenderer/libclirenderer.h
     src/lcr-renderer.cpp
     src/lcr-system.cpp
 )
