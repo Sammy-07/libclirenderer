@@ -4,7 +4,7 @@
 #include <cstdlib>
 
 //Main h file
-#include "../libclirenderer.h"
+#include "../include/libclirenderer/libclirenderer.h"
 
 
 

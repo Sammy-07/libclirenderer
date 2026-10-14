@@ -10,7 +10,7 @@
 #endif
 
 //Main h file
-#include "../libclirenderer.h"
+#include "../include/libclirenderer/libclirenderer.h"
 
 void winAnsiInit(bool winAnsiEnable){
 
