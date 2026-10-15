@@ -35,6 +35,7 @@ void winAnsiInit(bool winAnsiEnable){
     #endif
 }
 
+//Clear the terminal using ANSI codes
 void clearScreen() {
     winAnsiInit(true);
     // \033[H   -> Moves cursor to top-left
@@ -99,6 +100,7 @@ void offsetCursor(int x, int y) {
     }
 }
 
+//Offset the terminal cursor using ANSI codes
 void offsetCursorAnsi(int x, int y) {
     winAnsiInit(true);
     // ANSI escape code to move cursor to row (y + 1) and column (x + 1)
@@ -106,7 +108,7 @@ void offsetCursorAnsi(int x, int y) {
     winAnsiInit(false);
 }
 
-//hide or show the terminal cursor
+//hide or show the terminal cursor based on a bool input
 void showCursor(bool cursorState) {
     winAnsiInit(true);
     if (cursorState == true) {
