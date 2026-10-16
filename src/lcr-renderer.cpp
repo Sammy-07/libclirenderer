@@ -59,32 +59,96 @@ void waitFloat(double waitTime) {
 void renderSquare(int width, int height) {
     int lineHeightCounterStorage = height;
     int lineWidthCounterStorage = width;
+
+    #if defined(__APPLE__) || defined(__linux__)
     std::cout << "┌" << std::flush;
+    #endif
+    
+    #ifdef _WIN32
+    std::cout << "+" << std::flush;
+    #endif
+
     while (width > 2) {
+
+        #if defined(__APPLE__) || defined(__linux__)
         std::cout << "─" << std::flush;
+        #endif
+
+        #ifdef _WIN32
+        std::cout << "-" << std::flush;
+        #endif
+
         width = width - 1;
     }
-    std::cout << "┐";
+    #if defined(__APPLE__) || defined(__linux__)
+    std::cout << "┐"; << std::flush;
+    #endif
+    
+    #ifdef _WIN32
+    std::cout << "+" << std::flush;
+    #endif
+    
     width = lineWidthCounterStorage;
     std::cout << "\n" << std::flush;
+
     while (height > 2) {
+
+        #if defined(__APPLE__) || defined(__linux__)
         std::cout << "│" << std::flush;
+        #endif
+
+        #ifdef _WIN32
+        std::cout << "|" << std::flush;
+        #endif
+
         while (width > 2) {
             std::cout << " " << std::flush;
             width = width - 1;
         }
         width = lineWidthCounterStorage;
+
+        #if defined(__APPLE__) || defined(__linux__)
         std::cout << "│" << std::flush;
+        #endif
+
+        #ifdef _WIN32
+        std::cout << "|" << std::flush;
+        #endif
+
         std::cout << "\n" << std::flush;
         height = height - 1;
     }
     height = lineHeightCounterStorage;
+
+    #if defined(__APPLE__) || defined(__linux__)
     std::cout << "└" << std::flush;
+    #endif
+
+    #ifdef _WIN32
+    std::cout << "+" << std::flush;
+    #endif
+
     while (width > 2) {
+
+        #if defined(__APPLE__) || defined(__linux__)
         std::cout << "─" << std::flush;
+        #endif
+
+        #ifdef _WIN32
+        std::cout << "-" << std::flush;
+        #endif
         width = width - 1;
     }
+
+    #if defined(__APPLE__) || defined(__linux__)
     std::cout << "┘" << std::flush;
+    #endif
+
+    #ifdef _WIN32
+    std::cout << "+" << std::flush;
+    #endif
+
+    
 }
 
 
