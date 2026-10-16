@@ -82,7 +82,7 @@ void renderSquare(int width, int height) {
     }
 
     #if defined(__APPLE__) || defined(__linux__)
-    std::cout << "┐"; << std::flush;
+    std::cout << "┐" << std::flush;
     #endif
     
     #ifdef _WIN32
