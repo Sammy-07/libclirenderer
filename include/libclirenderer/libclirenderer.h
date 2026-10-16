@@ -1,5 +1,5 @@
-#ifndef SYSTEMCLI_H
-#define SYSTEMCLI_H
+#ifndef LCR_H
+#define LCR_H
 
 //Clears text on the terminal window using system
 void clearScreenSys();
@@ -24,5 +24,8 @@ void winAnsiInit(bool winAnsiEnable);
 
 // show and hide the cursor based on a bool input
 void showCursor(bool cursorState);
+
+//Render loading circle at offset
+void loadingWheelAt(int x, int y, int cycles);
 
 #endif
