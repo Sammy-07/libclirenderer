@@ -80,6 +80,7 @@ void renderSquare(int width, int height) {
 
         width = width - 1;
     }
+
     #if defined(__APPLE__) || defined(__linux__)
     std::cout << "┐"; << std::flush;
     #endif
