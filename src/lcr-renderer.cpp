@@ -35,6 +35,7 @@ void winAnsiInit(bool winAnsiEnable){
     #endif
 }
 
+//Clear the terminal using ANSI codes
 void clearScreen() {
     winAnsiInit(true);
     // \033[H   -> Moves cursor to top-left
@@ -58,32 +59,97 @@ void waitFloat(double waitTime) {
 void renderSquare(int width, int height) {
     int lineHeightCounterStorage = height;
     int lineWidthCounterStorage = width;
+
+    #if defined(__APPLE__) || defined(__linux__)
     std::cout << "┌" << std::flush;
+    #endif
+    
+    #ifdef _WIN32
+    std::cout << "+" << std::flush;
+    #endif
+
     while (width > 2) {
+
+        #if defined(__APPLE__) || defined(__linux__)
         std::cout << "─" << std::flush;
+        #endif
+
+        #ifdef _WIN32
+        std::cout << "-" << std::flush;
+        #endif
+
         width = width - 1;
     }
-    std::cout << "┐";
+
+    #if defined(__APPLE__) || defined(__linux__)
+    std::cout << "┐" << std::flush;
+    #endif
+    
+    #ifdef _WIN32
+    std::cout << "+" << std::flush;
+    #endif
+    
     width = lineWidthCounterStorage;
     std::cout << "\n" << std::flush;
+
     while (height > 2) {
+
+        #if defined(__APPLE__) || defined(__linux__)
         std::cout << "│" << std::flush;
+        #endif
+
+        #ifdef _WIN32
+        std::cout << "|" << std::flush;
+        #endif
+
         while (width > 2) {
             std::cout << " " << std::flush;
             width = width - 1;
         }
         width = lineWidthCounterStorage;
+
+        #if defined(__APPLE__) || defined(__linux__)
         std::cout << "│" << std::flush;
+        #endif
+
+        #ifdef _WIN32
+        std::cout << "|" << std::flush;
+        #endif
+
         std::cout << "\n" << std::flush;
         height = height - 1;
     }
     height = lineHeightCounterStorage;
+
+    #if defined(__APPLE__) || defined(__linux__)
     std::cout << "└" << std::flush;
+    #endif
+
+    #ifdef _WIN32
+    std::cout << "+" << std::flush;
+    #endif
+
     while (width > 2) {
+
+        #if defined(__APPLE__) || defined(__linux__)
         std::cout << "─" << std::flush;
+        #endif
+
+        #ifdef _WIN32
+        std::cout << "-" << std::flush;
+        #endif
         width = width - 1;
     }
+
+    #if defined(__APPLE__) || defined(__linux__)
     std::cout << "┘" << std::flush;
+    #endif
+
+    #ifdef _WIN32
+    std::cout << "+" << std::flush;
+    #endif
+
+    
 }
 
 
@@ -99,6 +165,7 @@ void offsetCursor(int x, int y) {
     }
 }
 
+//Offset the terminal cursor using ANSI codes
 void offsetCursorAnsi(int x, int y) {
     winAnsiInit(true);
     // ANSI escape code to move cursor to row (y + 1) and column (x + 1)
@@ -106,7 +173,7 @@ void offsetCursorAnsi(int x, int y) {
     winAnsiInit(false);
 }
 
-//hide or show the terminal cursor
+//hide or show the terminal cursor based on a bool input
 void showCursor(bool cursorState) {
     winAnsiInit(true);
     if (cursorState == true) {
