@@ -191,20 +191,20 @@ void loadingWheelAt(int x, int y, int cycles) {
         auto printLoadingSectionAtOffsetAdd = [&](int addx, int addy) {
             offsetCursorAnsi((x + addx), y + addy);
             std::cout << "o" << std::flush;
-            waitFloat(0.3);
+            waitFloat(0.2);
             std::cout << "\b " << std::flush;
         };
 
         printLoadingSectionAtOffsetAdd(1, 0);
         printLoadingSectionAtOffsetAdd(2, 0);
         printLoadingSectionAtOffsetAdd(3, 0);
-        printLoadingSectionAtOffsetAdd(0, 1);
-        printLoadingSectionAtOffsetAdd(0, 2);
-        printLoadingSectionAtOffsetAdd(1, 3);
-        printLoadingSectionAtOffsetAdd(2, 3);
-        printLoadingSectionAtOffsetAdd(3, 3);
-        printLoadingSectionAtOffsetAdd(4, 2);
         printLoadingSectionAtOffsetAdd(4, 1);
+        printLoadingSectionAtOffsetAdd(4, 2);
+        printLoadingSectionAtOffsetAdd(3, 3);
+        printLoadingSectionAtOffsetAdd(2, 3);
+        printLoadingSectionAtOffsetAdd(1, 3);
+        printLoadingSectionAtOffsetAdd(0, 2);
+        printLoadingSectionAtOffsetAdd(0, 1);
 
         cycles = cycles - 1;
     }
