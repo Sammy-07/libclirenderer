@@ -6,6 +6,8 @@ add_library(libclirenderer
     include/libclirenderer/libclirenderer.h
     src/lcr-renderer.cpp
     src/lcr-system.cpp
+    src/lcr-time.cpp
+    src/lcr-tools.cpp
 )
 
 # Specify where other projects can find its header files
