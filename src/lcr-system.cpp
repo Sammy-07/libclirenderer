@@ -7,6 +7,10 @@
 #include "../include/libclirenderer/libclirenderer.h"
 
 
+/*
+Functions that do what they do by running commands
+in terminal or cmd
+*/
 
 
 //Clears the Terminal Screen Functions across operating systems
