@@ -186,13 +186,18 @@ void showCursor(bool cursorState) {
 
 //Loading wheel spawned at location
 void loadingWheelAt(int x, int y, int cycles) {
+    int addyOneOld = 0;
+    int addxOneOld = 0;
     while (cycles > 0) {
         showCursor(false);
         auto printLoadingSectionAtOffsetAdd = [&](int addx, int addy) {
             offsetCursorAnsi((x + addx), y + addy);
             std::cout << "o" << std::flush;
-            waitFloat(0.2);
-            std::cout << "\b " << std::flush;
+            waitFloat(0.1);
+            offsetCursorAnsi(addxOneOld, addyOneOld);
+            std::cout << " " << std::flush;
+            addxOneOld = addx;
+            addyOneOld = addy;
         };
 
         printLoadingSectionAtOffsetAdd(1, 0);
