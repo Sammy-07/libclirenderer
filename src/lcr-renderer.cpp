@@ -196,8 +196,8 @@ void loadingWheelAt(int x, int y, int cycles) {
             waitFloat(0.1);
             offsetCursorAnsi(addxOneOld, addyOneOld);
             std::cout << " " << std::flush;
-            addxOneOld = addx;
-            addyOneOld = addy;
+            addxOneOld = x + addx;
+            addyOneOld = y + addy;
         };
 
         printLoadingSectionAtOffsetAdd(1, 0);
