@@ -213,5 +213,9 @@ void loadingWheelAt(int x, int y, int cycles) {
 
         cycles = cycles - 1;
     }
+
+    offsetCursor(addxOneOld, addyOneOld);
+    std::cout << " " << std::flush;
+
     showCursor(true);
 }
