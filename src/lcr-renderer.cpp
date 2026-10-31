@@ -174,3 +174,8 @@ void loadingWheelAt(int x, int y, int cycles) {
 
     showCursor(true);
 }
+/*
+void loadingBarAt(int x, int y, ) {
+
+}
+*/
